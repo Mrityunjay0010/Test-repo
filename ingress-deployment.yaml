@@ -46,3 +46,26 @@ spec:
         ports:
         - containerPort: 8080
 ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: accounts
+  name: accounts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ing2
+  template:
+    metadata:
+      labels:
+        app: ing2
+    spec:
+      containers:
+      - image: httpd
+        name: httpd
+        ports:
+        - containerPort: 80
+---
+
