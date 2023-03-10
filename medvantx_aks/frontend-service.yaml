@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: medvantx-frontend-service
+  namespace: medvantx
+spec:
+  selector:
+    app: medvantx-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer

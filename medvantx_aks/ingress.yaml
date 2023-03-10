@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: medvantx-ingress
+  namespace: medvantx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /frontend
+            pathType: Prefix
+            backend:
+              service:
+                name: medvantx-frontend-service
+                port:
+                  name: http
+          - path: /backend
+            pathType: Prefix
+            backend:
+              service:
+                name: medvantx-backend-service
+                port:
+                  name: http
+          - path: /mongodb
+            pathType: Prefix
+            backend:
+              service:
+                name: mongo-database-service
+                port:
+                  name: http

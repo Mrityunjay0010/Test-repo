@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medvantx-backend
+  namespace: medvantx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: medvantx-backend
+  template:
+    metadata:
+      labels:
+        app: medvantx-backend
+    spec:
+      containers:
+      - name: medvantx-backend
+        image: mrityunjay0010/backend:latest
+        ports:
+        - containerPort: 3030
