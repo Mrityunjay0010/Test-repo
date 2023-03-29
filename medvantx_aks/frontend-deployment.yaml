@@ -17,4 +17,4 @@ spec:
       - name: medvantx-frontend
         image: mrityunjay0010/frontend:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
